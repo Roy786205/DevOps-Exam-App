@@ -1,32 +1,20 @@
 # DevOps-Exam-App
-*********************************************
-1. Launch Ubuntu 24.04, t2.large, 30 GB VM
-*********************************************
-Open below ports - 
-Type: All TCP, Protocol: TCP, Port range: 0 - 65535*
-Type: All ICMP - IPv4, Protocol: ICMP, Port range: All
-Type: SSH, Protocol: TCP, Port range: 22*
-Type: Custom TCP, Protocol: TCP, Port range: 3000*
-Type: Custom TCP, Protocol: TCP, Port range: 8081
-Type: Custom TCP, Protocol: TCP, Port range: 8080*
-Type: HTTPS, Protocol: TCP, Port range: 443*
-Type: Custom TCP, Protocol: TCP, Port range: 6443
-Type: HTTP, Protocol: TCP, Port range: 80*
-
 ************************************
 2. Connect to VM
 ************************************
+```
 sudo su
 sudo apt update
-
+```
 ************************************
 3. Installation of Jenkins
 ************************************
-vi jenkins.sh ----> Paste the below commands ---->
 #!/bin/bash
 
 # Install OpenJDK 17 JRE Headless
-sudo apt install openjdk-17-jre-headless -y
+sudo apt update
+sudo apt install openjdk-17-jdk
+
 
 # Download Jenkins GPG key
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
@@ -42,6 +30,7 @@ sudo apt-get update
 
 # Install Jenkins
 sudo apt-get install jenkins -y
+
 
 ----> esc ----> :wq ----> sudo chmod +x jenkins.sh ----> ./jenkins.sh ----> jenkins --version ----> Setup the Jenkins Dashboard
 
